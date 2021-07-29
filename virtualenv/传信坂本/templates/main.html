@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.bootcdn.net/ajax/libs/semantic-ui/2.4.1/semantic.css" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- menu -->
+    <div class="ui large top  hidden menu">
+        <div class="ui container">
+            <a class="active item">Home</a>
+            <a class="item">Work</a>
+            <a class="item">Company</a>
+            <a class="item">Careers</a>
+            <div class="right menu">
+                <div class="item">
+                    <a class="ui button">Log in</a>
+                </div>
+                <div class="item">
+                    <a class="ui primary button">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1>hello 这就是主界面</h1>
+
+
+
+
+
+    <!-- shellcode下载表单 -->
+    <div> 生成shellcode_exe</div>
+    <form action="D_shellcode" method="get" class="ui  form">
+        <div class="fields ">
+            {{ form_shellcode }} {% csrf_token %}
+            <button type="submit" class="ui vertical blue  button"> generate
+            </button>
+        </div>
+
+    </form>
+
+    <br/>
+    <div class="ui grid">
+        <div class="ten wide ">
+            <div class="ui  green container">
+                <form action="upload_file" method="post" enctype="multipart/form-data" class="ui  form">
+                    <div class="fields ">
+                        {% csrf_token %}
+                        <div class="ui icon input">
+                            <i class="ui big file icon"></i>
+                            <input type="file" name="upload_file">
+
+                        </div>
+
+                        <div class=" ui input">
+                            <button type="submit">上传</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+
+
+    <div class="ui grid">
+
+        <div class="nine wide column">
+            <table border="1" class="ui compact celled  inverted table">
+                <div class="">最近登录时间</div>
+                <tbody>
+                    <tr>
+                        <td>用户</td>
+                        <td>登录时间</td>
+                        <td>基本操作
+                        </td>
+                    </tr>
+                    {% for item in data %}
+
+                    <tr>
+                        <td>{{ item.user }}</td>
+                        <td>{{ item.time }}</td>
+                        <td><a href="Data_clear?id={{item.id}}">删除</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <a href="Data_clear?id=all">清除全部</a>
+        </div>
+    </div>
+</body>
+
+</html>

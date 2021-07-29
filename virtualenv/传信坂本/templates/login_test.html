@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.bootcdn.net/ajax/libs/semantic-ui/2.4.1/semantic.css" rel="stylesheet">
+    <title>首页</title>
+</head>
+
+<body>
+
+    <div class="ui grid">
+        <div class=" six wide column"></div>
+        <div class=" four wide column">
+            <div class="ui inverted segment">
+                <form method="post" class="ui form">
+                    <h1>用户输入：</h1>
+                    <!--加入这行 -->
+                    {{form.as_p}} {% csrf_token %}
+                    <button type="submit" class="ui blue button"> click
+                        </button>
+
+
+                </form>
+            </div>
+        </div>
+        <div class=" six wide column"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,4 @@
+face1:
+# my_start_window.btn_face_reg.configure(text='''add face''')
+        my_face_encoding = []
+        face_added = False
